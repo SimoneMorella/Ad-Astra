@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  border: 1px solid red;
+} */
+
+@font-face {
+  font-family: 'Nasalization';
+  src: url('./assets/fonts/nasalization.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.home-btn {
+  background: linear-gradient(transparent, transparent 50%, white 50%, white);
+  background-size: 100% 200%;
+  transition: all 0.3s;
+}
+
+.home-btn:hover {
+  background-position: 200% 100%;
+  color: black;
+}
+
+.home-btn-secondary {
+  background: linear-gradient(transparent, transparent 50%, #B89814 50%, #B89814);
+  background-size: 100% 200%;
+  transition: all 0.3s;
+}
+
+.home-btn-secondary:hover {
+  background-position: 200% 100%;
+  color: black;
+}
+

@@ -1,0 +1,34 @@
+import { LaunchProps } from "../types/launchTypes"
+import { Link } from "react-router-dom"
+import { IoArrowForwardOutline, IoHeartOutline } from "react-icons/io5";
+
+
+export default function LaunchCard({ launch }: LaunchProps) {
+    return (
+        <div className="relative flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
+            <button
+                className="absolute z-10 top-2 right-2">
+                <IoHeartOutline className="w-[18px] h-[18px]"/>
+            </button>
+            <img 
+                src={launch.links.patch.large || ''} alt="patch image" 
+                className="h-[120px] object-contain"/>
+            <div className="">
+                <div className="flex flex-col-reverse">
+                    <h2 className="text-sm font-extrabold min-h-12">{launch.name}</h2>
+                    <h3 className={`text-sm font-nasa ${launch.success ? 'text-green-500' : 'text-red-500'}`}>
+                        {launch.success ? "SUCCESS" : "FAILURE"}
+                    </h3>
+                </div>
+                <div className="text-xs text-gray-100">
+                    Date: {launch.date_utc ? new Date(launch.date_utc).toLocaleDateString(): 'TBA'}
+                </div>
+                <Link to={`/launches/${launch.id}`}
+                    className="flex items-center text-sm underline underline-offset-4 text-blue-300">
+                    Discover More
+                    <IoArrowForwardOutline className="inline ml-1 mt-[2px]"/>
+                </Link>
+            </div>
+        </div>
+    )
+}
