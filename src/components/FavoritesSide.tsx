@@ -17,11 +17,15 @@ export default function FavoritesSide() {
             <div className="flex-1 py-4 space-y-2 overflow-auto">
                 { favorites.map(fav => {
                     return (
-                        <div
+                        <Link
+                            to={`/launch/${fav.id}`}
+                            state={{ launch: fav }}
                             key={fav.id} 
                             className="border-2 border-white rounded-sm min-h-20 bg-black bg-opacity-40 relative p-2 flex gap-4 items-center w-full">
                             <button
-                            onClick={() => removeFromFavorites(fav)} 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                removeFromFavorites(fav)}} 
                                 className="absolute top-1 right-1 text-white">
                                 <IoMdCloseCircle />
                             </button>
@@ -43,7 +47,7 @@ export default function FavoritesSide() {
                                         className="font-bold">See More..</Link>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>

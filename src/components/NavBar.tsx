@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react";
 import useFavoriteContext from "../context/FavContextHook";
 import FavoritesSide from "./FavoritesSide";
@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function NavBar() {
     const [isFavOpen, setIsFavOpen] = useState(false);
     const { favorites } = useFavoriteContext();
+    const location = useLocation();
 
     useEffect(() => {
         if (isFavOpen) {
@@ -21,16 +22,20 @@ export default function NavBar() {
         }
     }, [isFavOpen])
 
+    useEffect(() => {
+        setIsFavOpen(false);
+    }, [location, setIsFavOpen])
+
     const toggleFavOpen = () => setIsFavOpen(!isFavOpen);
 
     return (
-        <nav className="w-full py-4 px-6 flex justify-between items-center">
+        <nav className="w-full py-4 px-6 sm:px-8 lg:px-12 2xl:px-16 flex justify-between items-center">
             <Link 
                 to='/'
                 className="font-nasa text-white">
                 AD ASTRA
             </Link>
-            <div className="flex text-white text-xl">
+            <div className="flex text-white text-xl lg:gap-2">
                 <Link to='/launches' className="p-1">
                     <IoRocketOutline />
                 </Link>
@@ -48,7 +53,7 @@ export default function NavBar() {
                                 animate={{ x: 0 }}
                                 exit={{ x:'420px' }}
                                 transition={{ duration: 0.3 }}
-                                className="fixed z-20 top-0 right-0 w-[300px] h-full bg-black p-4 shadow-md">
+                                className="fixed z-20 top-0 right-0 w-[300px] md:w-[350px] lg:w-[420px] h-full bg-zinc-900 p-4 shadow-md">
                                 <FavoritesSide />
                             </motion.div>
                             <motion.div
@@ -57,7 +62,7 @@ export default function NavBar() {
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
                                 onClick={() => toggleFavOpen()}
-                                className="absolute z-10 top-0 right-0 w-full h-full bg-black opacity-50">
+                                className="absolute z-10 top-0 right-0 w-full h-full bg-black opacity-40">
                             </motion.div>
                         </>
                     )}

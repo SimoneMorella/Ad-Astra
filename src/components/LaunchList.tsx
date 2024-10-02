@@ -10,7 +10,7 @@ export default function LaunchList() {
     
     return (
         <div className="flex flex-col pt-4 pb-10 font-montserrat text-white space-y-4 flex-1 relative border-t border-t-white border-opacity-40">
-            <div className=" grid grid-cols-2 gap-y-3 gap-x-2">
+            <div className=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-3 md:gap-y-6 gap-x-2 md:gap-x-6">
                 {docs.length > 0 
                     ? (docs.map( launch => {
                     return (
@@ -23,14 +23,20 @@ export default function LaunchList() {
             </div>
             <div className="flex items-center justify-center gap-4 absolute bottom-0 right-0 left-0">
                 { hasPrevPage && (
-                    <Link to={`?page=${prevPage}`} className="p-1">
+                    <Link 
+                        to={`?page=${prevPage}`} 
+                        onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+                        className="p-1">
                         <IoArrowBackOutline className="w-5 h-5"/>
 
                     </Link>
                 )}
                 <span className="font-nasa">{page} of {totalPages}</span>
                 {hasNextPage && (
-                    <Link to={`?page=${nextPage}`} className="p-1">
+                    <Link 
+                        to={`?page=${nextPage}`} 
+                        onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+                        className="p-1">
                         <IoArrowForwardOutline  className="w-5 h-5"/>
                     </Link>
                 )}

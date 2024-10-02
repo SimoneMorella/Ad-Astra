@@ -27,9 +27,9 @@ export default function Launches() {
     }
 
     return (
-        <div className="px-6 py-4 space-y-4 font-montserrat flex-1 flex flex-col">
+        <div className="px-6 sm:px-8 lg:px-12 2xl:px-16 py-4 space-y-4 font-montserrat flex-1 flex flex-col lg:w-[930px] lg:mx-auto">
             <h1
-                className="font-nasa text-white text-xl mt-5">
+                className="font-nasa text-white text-xl lg:text-2xl mt-5">
                 Search among all launches
             </h1>
             <div className="space-y-4">

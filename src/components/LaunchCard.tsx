@@ -12,14 +12,14 @@ export default function LaunchCard({ launch }: LaunchProps) {
         <Link 
             to={`/launch/${launch.id}`} 
             state={{ launch: launch}}
-            className="relative animate-fadeIn flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
+            className="relative animate-fadeIn flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl md:min-h-[300px]">
             <button
                 onClick={(e) => {
                     e.preventDefault();
                     if (isFavorite) removeFromFavorites(launch)
                     else addToFavorites(launch)
                 }}
-                className="absolute z-[2] top-2 right-2">
+                className="absolute top-2 right-2">
                 {isFavorite
                     ? (<IoHeartSharp className="w-[18px] h-[18px]"/>)
                     : (<IoHeartOutline className="w-[18px] h-[18px]"/>)}
@@ -27,7 +27,7 @@ export default function LaunchCard({ launch }: LaunchProps) {
             </button>
             <img 
                 src={launch.links.patch.large || ''} alt="patch image" 
-                className="h-[120px] object-contain"/>
+                className="h-[120px] md:h-[140px] object-contain"/>
             <div className="">
                 <div className="flex flex-col-reverse">
                     <h2 className="text-sm font-extrabold min-h-12">{launch.name}</h2>
