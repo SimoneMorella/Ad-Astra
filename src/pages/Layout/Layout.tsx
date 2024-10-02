@@ -6,7 +6,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div className="min-h-svh bg-custom-bg-home bg-cover ">
+        <div className="min-h-svh bg-custom-bg-home bg-cover flex flex-col">
             <NavBar />
             { children }
         </div>

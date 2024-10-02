@@ -1,14 +1,22 @@
 import { LaunchProps } from "../types/launchTypes"
 import { Link } from "react-router-dom"
-import { IoArrowForwardOutline, IoHeartOutline } from "react-icons/io5";
+import useFavoriteContext from "../context/FavContextHook";
+import { IoArrowForwardOutline, IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 
 export default function LaunchCard({ launch }: LaunchProps) {
+    const { favorites, addToFavorites, removeFromFavorites } = useFavoriteContext();
+    const isFavorite = favorites.some(fav => fav.id === launch.id);
+
     return (
         <div className="relative flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
             <button
-                className="absolute z-10 top-2 right-2">
-                <IoHeartOutline className="w-[18px] h-[18px]"/>
+                onClick={() => isFavorite ? removeFromFavorites(launch) : addToFavorites(launch)}
+                className="absolute top-2 right-2">
+                {isFavorite
+                    ? (<IoHeartSharp className="w-[18px] h-[18px]"/>)
+                    : (<IoHeartOutline className="w-[18px] h-[18px]"/>)}
+                
             </button>
             <img 
                 src={launch.links.patch.large || ''} alt="patch image" 

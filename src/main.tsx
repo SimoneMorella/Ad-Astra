@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Launches from './pages/Launches'
 import LaunchList from './components/LaunchList'
 import loadAllLaunches from './loaders/loaders'
+import FavoriteProvider from './context/FavoriteProvider'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         index: true,
         element: <LaunchList />,
         loader: loadAllLaunches,
+      },
+      {
+        path: '/launches/filtered',
+        element: <LaunchList />,
+        loader: loadAllLaunches,
       }
     ],
   }
@@ -38,6 +44,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FavoriteProvider>
+      <RouterProvider router={router} />
+    </FavoriteProvider>
   </StrictMode>,
 )

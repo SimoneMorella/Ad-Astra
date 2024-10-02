@@ -6,6 +6,10 @@
   border: 1px solid red;
 } */
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'Nasalization';
   src: url('./assets/fonts/nasalization.otf') format('opentype');

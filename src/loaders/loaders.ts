@@ -6,7 +6,9 @@ export default async function loadAllLaunches({ request } : LoaderFunctionArgs):
     try {
         const url = new URL(request.url);
         const page = Number(url.searchParams.get('page') || 1)
-        const response = await fetchAllLaunches(page);
+        const date = url.searchParams.get('date') || undefined;
+        const success = url.searchParams.get('success') || undefined;
+        const response = await fetchAllLaunches(page, 20, date, success);
         return response;
     } catch (err) {
         if (err instanceof Error) {

@@ -6,7 +6,7 @@ export default function FilterSelect({ options, filter, setFilter } : FilterProp
     return (
         <Select
             options={options}
-            value={options.find(opt => opt.value === filter)}
+            value={filter !== '' ? options.find(opt => opt.value === filter): null}
             onChange={(choice : SingleValue<DateOptionsType | SuccessOptionsType>) => {
                 const value = choice ? choice.label: '';
                 setFilter(value)
@@ -37,6 +37,17 @@ export default function FilterSelect({ options, filter, setFilter } : FilterProp
                 singleValue: (provided) => ({
                     ...provided,
                     color: 'white'
+                }),
+                menu: (provided) => ({
+                    ...provided,
+                    backgroundColor: 'rgba(0,0,0,0.90)',
+                    borderRadius: '2px',
+                    color: 'white',
+                    overflowY: 'hidden',
+                }),
+                option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isSelected ? '#000000' : (state.isFocused ? '#333333': '#000000'),
                 })
 
 

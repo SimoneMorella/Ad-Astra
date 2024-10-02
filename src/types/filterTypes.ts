@@ -14,3 +14,11 @@ export interface SuccessOptionsType  {
     label: string;
 }
 
+export interface QueryType {
+    date_utc?: {
+        $gte: string,
+        $lte: string,
+    };
+    success?: boolean;
+}
+

@@ -37,3 +37,11 @@ export type LaunchProps = {
     launch: launch;
 }
 
+export interface FavContextType {
+    favorites: LaunchArr;
+    addToFavorites: (launch: launch) => void;
+    removeFromFavorites: (launch: launch) => void;
+    clearFavorites: () => void;
+
+}
+

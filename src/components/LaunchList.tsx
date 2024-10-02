@@ -9,7 +9,7 @@ export default function LaunchList() {
     const { docs, hasNextPage, hasPrevPage, nextPage, prevPage, totalPages, page } = data;
     
     return (
-        <div className="pt-4 font-montserrat text-white space-y-4">
+        <div className="flex flex-col items-center pt-4 pb-10 font-montserrat text-white space-y-4 flex-1 relative">
             <div className=" grid grid-cols-2 gap-y-3 gap-x-2">
                 {docs.map( launch => {
                     return (
@@ -17,7 +17,7 @@ export default function LaunchList() {
                     )
                 })}
             </div>
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-4 absolute bottom-0">
                 { hasPrevPage && (
                     <Link to={`?page=${prevPage}`} className="p-1">
                         <IoArrowBackOutline className="w-5 h-5"/>
