@@ -17,7 +17,9 @@ interface Links {
         campaign: string | null;
     };
     webcast: string | null;
+    youtube_id: string | null;
     wikipedia: string | null;
+    article: string | null
 }
 
 export type LaunchArr = launch[];
@@ -42,6 +44,13 @@ export interface FavContextType {
     addToFavorites: (launch: launch) => void;
     removeFromFavorites: (launch: launch) => void;
     clearFavorites: () => void;
+}
 
+export interface LocationType {
+    hash?: string;
+    key?: string;
+    pathname: string;
+    search?: string;
+    state?: LaunchProps;
 }
 

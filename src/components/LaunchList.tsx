@@ -9,15 +9,19 @@ export default function LaunchList() {
     const { docs, hasNextPage, hasPrevPage, nextPage, prevPage, totalPages, page } = data;
     
     return (
-        <div className="flex flex-col items-center pt-4 pb-10 font-montserrat text-white space-y-4 flex-1 relative">
+        <div className="flex flex-col pt-4 pb-10 font-montserrat text-white space-y-4 flex-1 relative border-t border-t-white border-opacity-40">
             <div className=" grid grid-cols-2 gap-y-3 gap-x-2">
-                {docs.map( launch => {
+                {docs.length > 0 
+                    ? (docs.map( launch => {
                     return (
                         <LaunchCard key={launch.id} launch={launch} />
                     )
-                })}
+                })
+            ) : (
+                    <div className="text-lg text-center">No launches found.</div>
+                )}
             </div>
-            <div className="flex items-center justify-center gap-4 absolute bottom-0">
+            <div className="flex items-center justify-center gap-4 absolute bottom-0 right-0 left-0">
                 { hasPrevPage && (
                     <Link to={`?page=${prevPage}`} className="p-1">
                         <IoArrowBackOutline className="w-5 h-5"/>

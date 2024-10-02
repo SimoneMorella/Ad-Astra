@@ -31,7 +31,8 @@ export default function LaunchCard({ launch }: LaunchProps) {
                 <div className="text-xs text-gray-100">
                     Date: {launch.date_utc ? new Date(launch.date_utc).toLocaleDateString(): 'TBA'}
                 </div>
-                <Link to={`/launches/${launch.id}`}
+                <Link to={`/launch/${launch.id}`}
+                    state={{ launch: launch}}
                     className="flex items-center text-sm underline underline-offset-4 text-blue-300">
                     Discover More
                     <IoArrowForwardOutline className="inline ml-1 mt-[2px]"/>

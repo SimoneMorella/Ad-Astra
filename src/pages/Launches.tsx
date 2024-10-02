@@ -41,12 +41,12 @@ export default function Launches() {
                 <div className="flex gap-3">
                     <button
                         onClick={() => handleSetFilters()} 
-                        className="text-nasa-yellow py-2 px-3 text-sm font-nasa border-2 border-nasa-yellow rounded-sm home-btn-secondary">
+                        className="text-white py-2 px-3 font-nasa text-sm border-2 border-white rounded-sm home-btn">
                         Show Results
                     </button>
                     <button 
                         onClick={() => clearFilters()}
-                        className="text-white py-2 px-3 font-nasa text-sm border-2 border-white rounded-sm home-btn">
+                        className="text-nasa-yellow py-2 px-3 text-sm font-nasa border-2 border-nasa-yellow rounded-sm home-btn-secondary">
                         Clear Filters
                     </button>
                 </div>

@@ -37,7 +37,10 @@ export default function FavoritesSide() {
                                 </div>
                                 <div className="text-xs flex justify-between">
                                     <p >{fav.date_utc && new Date(fav.date_utc).toLocaleDateString()}</p>
-                                    <Link to={`launches/${fav.id}`} className="font-bold">See More..</Link>
+                                    <Link 
+                                        to={`/launch/${fav.id}`}
+                                        state={{ launch: fav }}
+                                        className="font-bold">See More..</Link>
                                 </div>
                             </div>
                         </div>

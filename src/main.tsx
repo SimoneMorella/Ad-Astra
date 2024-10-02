@@ -5,6 +5,7 @@ import Layout from './pages/Layout/Layout'
 import Home from './pages/Home'
 import Launches from './pages/Launches'
 import LaunchList from './components/LaunchList'
+import LaunchDetails from './pages/LaunchDetails'
 import loadAllLaunches from './loaders/loaders'
 import FavoriteProvider from './context/FavoriteProvider'
 import './index.css'
@@ -43,6 +44,14 @@ const router = createBrowserRouter([
         loader: loadAllLaunches,
       }
     ],
+  },
+  {
+    path: '/launch/:id',
+    element: (
+      <Layout>
+        <LaunchDetails />
+      </Layout>
+    )
   }
 ])
 
