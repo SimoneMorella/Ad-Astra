@@ -9,10 +9,17 @@ export default function LaunchCard({ launch }: LaunchProps) {
     const isFavorite = favorites.some(fav => fav.id === launch.id);
 
     return (
-        <div className="relative animate-fadeIn flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
+        <Link 
+            to={`/launch/${launch.id}`} 
+            state={{ launch: launch}}
+            className="relative animate-fadeIn flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
             <button
-                onClick={() => isFavorite ? removeFromFavorites(launch) : addToFavorites(launch)}
-                className="absolute top-2 right-2">
+                onClick={(e) => {
+                    e.preventDefault();
+                    if (isFavorite) removeFromFavorites(launch)
+                    else addToFavorites(launch)
+                }}
+                className="absolute z-[2] top-2 right-2">
                 {isFavorite
                     ? (<IoHeartSharp className="w-[18px] h-[18px]"/>)
                     : (<IoHeartOutline className="w-[18px] h-[18px]"/>)}
@@ -38,6 +45,6 @@ export default function LaunchCard({ launch }: LaunchProps) {
                     <IoArrowForwardOutline className="inline ml-1 mt-[2px]"/>
                 </Link>
             </div>
-        </div>
+        </Link>
     )
 }
