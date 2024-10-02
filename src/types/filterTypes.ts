@@ -20,5 +20,9 @@ export interface QueryType {
         $lte: string,
     };
     success?: boolean;
+    name?: {
+        $regex: string,
+        $options: 'i',
+    };
 }
 

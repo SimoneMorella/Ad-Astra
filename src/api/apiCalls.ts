@@ -6,7 +6,7 @@ const URL = 'https://api.spacexdata.com/v4/launches/query';
 
 
 
-export async function fetchAllLaunches(page = 1, limit = 20, date?: string, success?: string): Promise<LaunchLoaderData> {
+export async function fetchAllLaunches(page = 1, limit = 20, date?: string, success?: string, queryName?: string): Promise<LaunchLoaderData> {
     try {
         const query: QueryType = {};
         if (date) {
@@ -20,6 +20,10 @@ export async function fetchAllLaunches(page = 1, limit = 20, date?: string, succ
             query['success'] = success === 'Successful';
         }
 
+        if (queryName) {
+            query['name'] = { $regex: queryName, $options: 'i' };
+        }
+
 
         const response = await axios.post<LaunchLoaderData>(URL, {
             query,
@@ -29,7 +33,6 @@ export async function fetchAllLaunches(page = 1, limit = 20, date?: string, succ
             }
         });
         return response.data;
-        console.log(response.data);
     } catch (err) {
         if (err instanceof Error) {
             throw new Error(`Failed to fetch SpaceX Launch data: ${err.message}`);

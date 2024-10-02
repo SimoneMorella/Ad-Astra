@@ -8,7 +8,8 @@ export default async function loadAllLaunches({ request } : LoaderFunctionArgs):
         const page = Number(url.searchParams.get('page') || 1)
         const date = url.searchParams.get('date') || undefined;
         const success = url.searchParams.get('success') || undefined;
-        const response = await fetchAllLaunches(page, 20, date, success);
+        const queryName = url.searchParams.get('q') || undefined;
+        const response = await fetchAllLaunches(page, 20, date, success, queryName);
         return response;
     } catch (err) {
         if (err instanceof Error) {

@@ -36,6 +36,11 @@ const router = createBrowserRouter([
         path: '/launches/filtered',
         element: <LaunchList />,
         loader: loadAllLaunches,
+      },
+      {
+        path: '/launches/search',
+        element: <LaunchList />,
+        loader: loadAllLaunches,
       }
     ],
   }

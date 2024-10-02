@@ -15,6 +15,15 @@ export default {
       },
       colors: {
         'nasa-yellow': '#B89814',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        }
+      },
+      animation: {
+        fadeIn: 'fade-in 1s'
       }
     },
   },

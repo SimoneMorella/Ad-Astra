@@ -9,7 +9,7 @@ export default function LaunchCard({ launch }: LaunchProps) {
     const isFavorite = favorites.some(fav => fav.id === launch.id);
 
     return (
-        <div className="relative flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
+        <div className="relative animate-fadeIn flex flex-col gap-3 px-3 py-4 font-montserrat bg-white bg-opacity-15 rounded-sm shadow-xl">
             <button
                 onClick={() => isFavorite ? removeFromFavorites(launch) : addToFavorites(launch)}
                 className="absolute top-2 right-2">
