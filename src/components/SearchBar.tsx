@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { LocationType } from "../types/launchTypes";
 
 export default function SearchBar() {
     const [query, setQuery] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation() as LocationType;
 
     useEffect(() => {
         setIsTyping(false);

@@ -17,7 +17,8 @@ export async function fetchAllLaunches(page = 1, limit = 20, date?: string, succ
         }
 
         if (success) {
-            query['success'] = success === 'Successful';
+            if (success === 'Successful') query['success'] = true;
+            else if (success === 'Failed') query['$or'] = [{ success: false }, { success: null}]
         }
 
         if (queryName) {

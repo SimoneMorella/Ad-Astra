@@ -24,5 +24,6 @@ export interface QueryType {
         $regex: string,
         $options: 'i',
     };
+    $or?: Array<{ success?: boolean | null }>;
 }
 
