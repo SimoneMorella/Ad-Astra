@@ -2,12 +2,26 @@ import { Outlet, useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import FilterSelect from "../components/FilterSelect";
 import { dateOptions, successOptions } from "../data/options";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Launches() {
     const [filterDate, setFilterDate] = useState('');
     const [filterSuccess, setFilterSuccess] = useState('');
+    const [queryInput, setQueryInput] = useState('');
+    const [filterQuerySwitch, setFilterQuerySwitch] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (queryInput !== '' && !filterQuerySwitch) {
+            setFilterDate('');
+            setFilterSuccess('');
+            setFilterQuerySwitch(true);
+        } else if ((filterDate !== '' || filterSuccess !== '') && filterQuerySwitch) {
+            setQueryInput('');
+            setFilterQuerySwitch(false);
+        } 
+
+    }, [queryInput, filterDate, filterSuccess, filterQuerySwitch]);
 
     function handleSetFilters() {
         const query = new URLSearchParams();
@@ -26,6 +40,7 @@ export default function Launches() {
         }
     }
 
+
     return (
         <div className="px-6 sm:px-8 lg:px-12 2xl:px-16 py-4 space-y-4 font-montserrat flex-1 flex flex-col lg:w-[930px] lg:mx-auto">
             <h1
@@ -33,7 +48,7 @@ export default function Launches() {
                 Search among all launches
             </h1>
             <div className="space-y-4">
-                <SearchBar />
+                <SearchBar query={queryInput} setQuery={setQueryInput}/>
                 <div className="flex gap-3 ">
                     <FilterSelect options={dateOptions} filter={filterDate} setFilter={setFilterDate}/>
                     <FilterSelect options={successOptions} filter={filterSuccess} setFilter={setFilterSuccess}/>

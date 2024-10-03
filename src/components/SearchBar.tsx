@@ -3,8 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { LocationType } from "../types/launchTypes";
 
-export default function SearchBar() {
-    const [query, setQuery] = useState("");
+export default function SearchBar({query, setQuery}) {
     const [isTyping, setIsTyping] = useState(false);
     const navigate = useNavigate();
     const location = useLocation() as LocationType;
@@ -28,7 +27,7 @@ export default function SearchBar() {
 
 
     return (
-        <form className="relative">
+        <form className="relative" onSubmit={(e) => e.preventDefault()}>
             <input 
                 type="text"
                 className="w-full py-[6px] px-3 rounded-sm bg-white bg-opacity-90 tracking-tighter outline-none focus:shadow-xl"
