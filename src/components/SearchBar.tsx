@@ -26,7 +26,6 @@ export default function SearchBar({query, setQuery}: SearchBarProps) {
         return () => clearTimeout(timer);
     }, [query, navigate, isTyping]);
 
-
     return (
         <form className="relative" onSubmit={(e) => e.preventDefault()}>
             <input 
@@ -40,9 +39,7 @@ export default function SearchBar({query, setQuery}: SearchBarProps) {
                 id="searchBar" />
             <label htmlFor="searchBar" className="absolute right-3 top-0 bottom-0 flex items-center">
                 <FaMagnifyingGlass className="w-[16px] h-[16px]"/>
-
             </label>
-            
         </form>
     )
 }

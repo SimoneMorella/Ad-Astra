@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { LaunchLoaderData } from '../types/launchTypes';
 import { QueryType } from '../types/filterTypes';
+
 const URL = 'https://api.spacexdata.com/v4/launches/query';
-
-
-
 
 export async function fetchAllLaunches(page = 1, limit = 20, date?: string, success?: string, queryName?: string): Promise<LaunchLoaderData> {
     try {
@@ -25,7 +23,6 @@ export async function fetchAllLaunches(page = 1, limit = 20, date?: string, succ
             query['name'] = { $regex: queryName, $options: 'i' };
         }
 
-
         const response = await axios.post<LaunchLoaderData>(URL, {
             query,
             options: {
@@ -42,4 +39,3 @@ export async function fetchAllLaunches(page = 1, limit = 20, date?: string, succ
         }
     }
 }
-

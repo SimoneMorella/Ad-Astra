@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 export default function Home() {
     const navigate = useNavigate();
-
     return (
         <div className="px-6 sm:px-8 lg:px-12 2xl:px-16 font-montserrat mt-32 md:mt-40 space-y-8">
             <div className="text-white space-y-1">
@@ -17,7 +16,6 @@ export default function Home() {
                 onClick={() => navigate("/launches")}>
                 EXPLORE
             </button>
-
         </div>
     )
 }

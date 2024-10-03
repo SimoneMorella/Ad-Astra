@@ -20,7 +20,6 @@ export default function Launches() {
             setQueryInput('');
             setFilterQuerySwitch(false);
         } 
-
     }, [queryInput, filterDate, filterSuccess, filterQuerySwitch]);
 
     function handleSetFilters() {
@@ -39,7 +38,6 @@ export default function Launches() {
             navigate(`/launches`);
         }
     }
-
 
     return (
         <div className="px-6 sm:px-8 lg:px-12 2xl:px-16 py-4 space-y-4 font-montserrat flex-1 flex flex-col lg:w-[930px] lg:mx-auto">

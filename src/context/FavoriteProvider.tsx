@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
 import { FavContextType, LaunchArr, launch } from "../types/launchTypes";
 
-
 export const FavContext = createContext<FavContextType | null>(null)
 
 export default function FavoriteProvider({ children } : { children: ReactNode }) {

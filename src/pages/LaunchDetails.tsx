@@ -34,7 +34,6 @@ export default function LaunchDetails() {
                             {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
                         </button>
                     ) }
-
                     <div className="flex gap-4 items-center">
                         <img
                             className="w-24 sm:w-28 md:w-32 lg:w-28 h-fit object-cover bg-center rounded-sm" 
@@ -44,23 +43,25 @@ export default function LaunchDetails() {
                             <p className="text-sm">{launch?.details ? launch?.details : 'TBA'}</p>
                         </div>
                 </div>
- 
                 </div>
                 <div className="flex gap-2">
                     {launch?.links?.wikipedia && (
                         <a 
                             className="bg-white bg-opacity-20 py-2 px-4 rounded-sm text-sm underline underline-offset-2"
-                            href={launch?.links?.wikipedia}>Wikipedia</a>
+                            href={launch?.links?.wikipedia}>Wikipedia
+                        </a>
                     )}
-                                    {launch?.links?.reddit?.campaign && (
+                    {launch?.links?.reddit?.campaign && (
                         <a 
                             className="bg-white bg-opacity-20 py-2 px-4 rounded-sm text-sm underline underline-offset-2"
-                            href={launch?.links?.reddit?.campaign}>Reddit</a>
+                            href={launch?.links?.reddit?.campaign}>Reddit
+                        </a>
                     )}
-                                    {launch?.links?.article && (
+                    {launch?.links?.article && (
                         <a 
                             className="bg-white bg-opacity-20 py-2 px-4 rounded-sm text-sm underline underline-offset-2"
-                            href={launch?.links?.article}>Article</a>
+                            href={launch?.links?.article}>Article
+                        </a>
                     )}
                 </div>
             </div>

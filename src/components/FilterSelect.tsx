@@ -49,9 +49,6 @@ export default function FilterSelect({ options, filter, setFilter } : FilterProp
                     ...provided,
                     backgroundColor: state.isSelected ? '#000000' : (state.isFocused ? '#333333': '#000000'),
                 })
-
-
-
             }}
         />
     )
